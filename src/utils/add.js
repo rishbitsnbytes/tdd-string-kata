@@ -7,12 +7,19 @@ export function add(input) {
   if (input.startsWith('//')) {
     const parts = input.split('\n');
     delimiter = parts[0].substring(2);
-    numberString = parts.slice(1).join(delimiter);
+    numberString = parts.slice(1).join('\n');
   }
 
   const cleanedInput = numberString.replaceAll('\n', delimiter);
-  const numbers = cleanedInput.split(delimiter);
+  const strNumbers = cleanedInput.split(delimiter);
 
-  const result = numbers.map((num) => parseInt(num)).reduce((acc, curr) => acc + curr, 0);
+  const numbers = strNumbers.map((num) => parseInt(num)).filter((num) => !isNaN(num));
+  const negatives = numbers.filter((num) => num < 0);
+
+  if (negatives.length > 0) {
+    throw new Error(`Negative numbers are not allowed: ${negatives.join(', ')}`);
+  }
+
+  const result = numbers.reduce((acc, curr) => acc + curr, 0);
   return result;
 }
