@@ -1,8 +1,23 @@
 import React, { useState } from 'react'
+import { add } from './utils/add'
 
 const StringCalculator = () => {
+  const [input, setInput] = useState('')
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+
+  const handleCalculate = () => {
+    try {
+      const res = add(input);
+      setResult(res);
+      setError(null);
+    } catch (err) {
+      setResult(null);
+      setError(err.message);
+      return;
+    }
+  }
+
   return (
     <main
       style={{
@@ -10,13 +25,24 @@ const StringCalculator = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '10px',
+        gap: '20px',
         width: '100%',
         margin: 'auto',
+        fontFamily: 'Arial, sans-serif'
       }}
     >
       <h1>String Calculator</h1>
-      <p>Enter numbers separated by commas to calculate their sum.</p>
+      <p
+        style={{
+          textAlign: 'center',
+          width: '50%',
+          margin: 'auto',
+          color: 'gray',
+          fontSize: '16px',
+        }}
+      >
+        Enter numbers separated by commas or choice of any delimiter to calculate their sum
+        </p>
       <div
         style={{
           display: 'flex',
@@ -32,6 +58,7 @@ const StringCalculator = () => {
             width: '100%',
             padding: '10px',
           }}
+          onChange={(e) => setInput(e.target.value)}
         />
         <button
           style={{
@@ -43,7 +70,9 @@ const StringCalculator = () => {
             border: '1px solid gray',
             borderRadius: '4px',
             cursor: 'pointer'
-          }}>
+          }}
+          onClick={handleCalculate}
+        >
           Calculate
         </button>
         {result !== null ? <p style={{ color: 'green' }}>Result: {result}</p> : null}
