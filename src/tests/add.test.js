@@ -27,6 +27,11 @@ describe('add function', () => {
     it('should handle different delimiters mentioned in first line', () => {
       expect(add('//;\n1;2;3')).toBe(6);
       expect(add('//:\n4:5:6')).toBe(15);
+      expect(add('//|\n7|8|9')).toBe(24);
+      expect(add('//,\n10,20,30')).toBe(60);
+      expect(add('//-\n1-2-3')).toBe(6);
+      expect(add('//.\n4.5.6')).toBe(15);
+      expect(add('//]\n7]8]9\n10')).toBe(34);
     });
 
     it('should throw an error for negative numbers', () => {
