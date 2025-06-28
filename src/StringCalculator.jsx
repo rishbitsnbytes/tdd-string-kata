@@ -16,8 +16,8 @@ const StringCalculator = () => {
     } catch (err) {
       setResult(null);
       setError(err.message);
-      return;
     }
+    setInput(''); // Clear input after calculation
   }
 
   return (
@@ -60,6 +60,7 @@ const StringCalculator = () => {
             width: '100%',
             padding: '10px',
           }}
+          value={input}
           onChange={(e) => setInput(e.target.value)}
         />
         <button
