@@ -8,7 +8,9 @@ const StringCalculator = () => {
 
   const handleCalculate = () => {
     try {
-      const res = add(input);
+      // Replace all occurrences of the string "\n" with a real newline character
+      const normalizedInput = input.replace(/\\n/g, '\n');
+      const res = add(normalizedInput);
       setResult(res);
       setError(null);
     } catch (err) {
@@ -42,7 +44,7 @@ const StringCalculator = () => {
         }}
       >
         Enter numbers separated by commas or choice of any delimiter to calculate their sum
-        </p>
+      </p>
       <div
         style={{
           display: 'flex',
