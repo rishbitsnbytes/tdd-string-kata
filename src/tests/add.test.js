@@ -18,4 +18,9 @@ describe('add function', () => {
       expect(add('1,2,3')).toBe(6);
       expect(add('10,20,30')).toBe(60);
     });
+
+    it('should handle numbers with new lines', () => {
+      expect(add('1\n2,3')).toBe(6);
+      expect(add('4,5\n6')).toBe(15);
+    });
   });
