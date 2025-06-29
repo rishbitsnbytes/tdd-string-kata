@@ -100,7 +100,7 @@ src/
 All testing-related libraries are added under **`devDependencies`** only:
 
 ```bash
-npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vitejs/plugin-react v8
+npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vitejs/plugin-react @vitest/coverage-v8
 ```
 
 | Package                     | Purpose                                 |
