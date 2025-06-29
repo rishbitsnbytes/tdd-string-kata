@@ -1,83 +1,138 @@
-# TDD String Kata
+# 🧪 TDD String Calculator Kata
 
-A small React-based String Calculator Kata, built with Test-Driven Development (TDD), Vite, and Vitest.
+A small, fast, and modern **React + Vite** app implementing the classic **String Calculator Kata**, fully built using **Test-Driven Development (TDD)** and covered with unit tests using **Vitest** and **React Testing Library**.
 
 ---
 
 ## 🚀 Features
 
-- **String Calculator**: Enter numbers separated by commas, newlines, or custom delimiters to calculate their sum.
-- **Custom Delimiters**: Supports custom single or multi-character delimiters as per the classic kata.
-- **Error Handling**: Shows errors for invalid input and negative numbers.
-- **Modern Stack**: Built with React 19, Vite, and Vitest for fast development and testing.
-- **100% Unit Test Coverage**: All logic and UI components are fully tested.
+* ✅ String calculator based on comma, newline, and custom delimiters
+* ✅ Custom delimiters of any length (`//[***]\n1***2***3`)
+* ✅ Multiple custom delimiters (`//[*][%]\n1*2%3`)
+* ✅ Ignores numbers > 1000
+* ✅ Throws error for negative numbers with full list
+* ✅ Built with modern stack (React 19, Vite, Vitest)
+* ✅ **100% unit test coverage**
+* ✅ Easily deployable (Vercel compatible)
 
 ---
 
 ## 🛠️ Getting Started
 
-### Prerequisites
+### ⚙️ Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18 or newer recommended)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
+* Node.js (v18+ recommended)
+* npm or pnpm
 
-### Installation
+### 📦 Installation
 
-```sh
-git clone https://github.com/yourusername/tdd-string-kata.git
+```bash
+git clone https://github.com/rishbitsnbytes/tdd-string-kata.git
 cd tdd-string-kata
 npm install
 ```
 
-### Running the App
+---
 
-```sh
+### ▶️ Running the App
+
+```bash
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-### Running Tests
+Open in your browser: [http://localhost:5173](http://localhost:5173)
 
-```sh
+---
+
+### 🧪 Running Tests
+
+```bash
 npm run test
 ```
 
-### Test Coverage
+### 📈 Test Coverage
 
-```sh
+```bash
 npm run test:coverage
 ```
-Open the generated `coverage/index.html` in your browser to view the coverage report.
+
+Open the generated report at:
+
+```
+coverage/index.html
+```
 
 ---
 
-## 📦 Project Structure
+## 📁 Project Structure
 
 ```
 src/
-  ├── App.jsx                # Main App component
-  ├── StringCalculator.jsx   # String Calculator UI and logic
-  ├── utils/
-  │     └── add.js           # String sum logic (kata)
-  ├── tests/
-  │     ├── add.test.js
-  │     ├── StringCalculator.test.jsx
-  │     └── App.test.jsx
-  └── main.jsx               # App entry point
+├── App.jsx                     # Main React component
+├── main.jsx                    # Entry point
+├── StringCalculator.jsx        # Calculator UI
+├── utils/
+│   └── add.js                  # TDD-based logic implementation
+├── tests/
+│   ├── add.test.js             # Unit tests for add()
+│   ├── StringCalculator.test.jsx
+│   └── App.test.jsx
+test/
+└── setup.js                    # Testing Library + Vitest setup
 ```
 
 ---
 
-## 🧪 Kata Rules Supported
+## 🧪 Kata Rules Implemented
 
-- Empty string returns 0
-- Single number returns itself
-- Two numbers, comma delimited, returns the sum
-- Multiple numbers, comma delimited, returns the sum
-- New lines between numbers are handled
-- Custom delimiters (e.g. `//;\n1;2`)
-- Negative numbers throw an error
-- Numbers > 1000 are ignored
+* `""` → `0`
+* `"1"` → `1`
+* `"1,2"` → `3`
+* `"1\n2,3"` → `6`
+* `"//;\n1;2"` → `3`
+* `"//[***]\n1***2***3"` → `6`
+* `"//[*][%]\n1*2%3"` → `6`
+* Negative numbers throw: `Negative numbers are not allowed: -2,-5`
+* Numbers > 1000 are ignored
+
+---
+
+## 📦 Dev Dependencies
+
+All testing-related libraries are added under **`devDependencies`** only:
+
+```bash
+npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vitejs/plugin-react c8
+```
+
+| Package                     | Purpose                                 |
+| --------------------------- | --------------------------------------- |
+| `vitest`                    | Fast unit test runner                   |
+| `@testing-library/react`    | React component testing utilities       |
+| `@testing-library/jest-dom` | Additional DOM matchers for assertions  |
+| `jsdom`                     | Simulated browser environment for tests |
+| `@vitejs/plugin-react`      | React plugin for Vite                   |
+| `c8`                        | Code coverage provider for Vitest       |
+
+---
+
+## 📜 Scripts
+
+```json
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "test": "vitest",
+  "test:coverage": "vitest run --coverage"
+}
+```
+
+---
+
+## 🌐 Deployment
+
+Deployed on [Vercel](https://vercel.com/)
+🔗 [Live App](https://tdd-string-kata.vercel.app/)
 
 ---
 
@@ -87,16 +142,4 @@ MIT License
 
 ---
 
-## 🙏 Credits
-
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Vitest](https://vitest.dev/)
-- [Testing Library](https://testing-library.com/)
-
-## Deployment - Vercel
- - [Link](https://tdd-string-kata.vercel.app/)
-
----
-
-Happy TDD-
+Happy TDDing! 🧪🚀
