@@ -5,6 +5,7 @@ const StringCalculator = () => {
   const [input, setInput] = useState('')
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [displayInput, setDisplayInput] = useState('')
 
   const handleCalculate = () => {
     try {
@@ -17,6 +18,7 @@ const StringCalculator = () => {
       setResult(null);
       setError(err.message);
     }
+    setDisplayInput(input);
     setInput(''); // Clear input after calculation
   }
 
@@ -78,6 +80,7 @@ const StringCalculator = () => {
         >
           Calculate
         </button>
+        {(displayInput) ? <p style={{ color: 'gray' }}>Input: {displayInput}</p> : null}
         {result !== null ? <p style={{ color: 'green' }}>Result: {result}</p> : null}
         {error ? <p style={{ color: 'red' }}>Error: {error}</p> : null}
       </div>
