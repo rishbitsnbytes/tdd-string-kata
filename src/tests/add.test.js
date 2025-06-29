@@ -47,4 +47,13 @@ describe('add function', () => {
       expect(add('1,2,3,1001')).toBe(6);
       expect(add('//;\n1;2;3;1001')).toBe(6);
     });
+
+    it('should handle bigger length of delimiters', () => {
+      expect(add('//[***]\n1***2***3')).toBe(6);
+      expect(add('//[###]\n4###5###6')).toBe(15);
+      expect(add('//[---]\n7---8---9')).toBe(24);
+      expect(add('//[+++]\n10+++20+++30')).toBe(60);
+      expect(add('//[===]\n1===2===3')).toBe(6);
+      expect(add('//[...]\n4...5...6')).toBe(15);
+    });
   });

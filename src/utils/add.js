@@ -6,7 +6,13 @@ export function add(input) {
 
   if (input.startsWith('//')) {
     const parts = input.split('\n');
-    delimiter = parts[0].substring(2);
+    const delimiterLine = parts[0].substring(2);
+    if(delimiterLine.startsWith('[')) {
+      // remove '[' and ']' from the delimiter
+      delimiter = delimiterLine.slice(1, -1); 
+    } else {
+      delimiter = delimiterLine;
+    }
     numberString = parts.slice(1).join('\n');
   }
 
