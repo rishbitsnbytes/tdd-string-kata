@@ -77,8 +77,6 @@ src/
 │   ├── add.test.js             # Unit tests for add()
 │   ├── StringCalculator.test.jsx
 │   └── App.test.jsx
-test/
-└── setup.js                    # Testing Library + Vitest setup
 ```
 
 ---
@@ -102,7 +100,7 @@ test/
 All testing-related libraries are added under **`devDependencies`** only:
 
 ```bash
-npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vitejs/plugin-react c8
+npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vitejs/plugin-react v8
 ```
 
 | Package                     | Purpose                                 |
@@ -112,7 +110,7 @@ npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vi
 | `@testing-library/jest-dom` | Additional DOM matchers for assertions  |
 | `jsdom`                     | Simulated browser environment for tests |
 | `@vitejs/plugin-react`      | React plugin for Vite                   |
-| `c8`                        | Code coverage provider for Vitest       |
+| `@vitest/coverage-v8`       | V8 code coverage provider for Vitest    |
 
 ---
 
@@ -131,7 +129,7 @@ npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom @vi
 
 ## 🌐 Deployment
 
-Deployed on [Vercel](https://vercel.com/)
+Deployed here:
 🔗 [Live App](https://tdd-string-kata.vercel.app/)
 
 ---
