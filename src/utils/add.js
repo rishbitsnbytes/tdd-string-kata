@@ -20,6 +20,8 @@ export function add(input) {
     throw new Error(`Negative numbers are not allowed: ${negatives.join(', ')}`);
   }
 
-  const result = numbers.reduce((acc, curr) => acc + curr, 0);
+  const result = numbers
+    .filter((num) => num <= 1000)
+    .reduce((acc, curr) => acc + curr, 0);
   return result;
 }
