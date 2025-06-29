@@ -56,4 +56,19 @@ describe('add function', () => {
       expect(add('//[===]\n1===2===3')).toBe(6);
       expect(add('//[...]\n4...5...6')).toBe(15);
     });
+
+    it('should handle multiple delimiters', () => {
+      expect(add('//[;][|]\n1;2|3')).toBe(6);
+      expect(add('//[***][###]\n4***5###6')).toBe(15);
+      expect(add('//[---][+++]\n7---8+++9')).toBe(24);
+      expect(add('//[===][...]\n10===20...30')).toBe(60);
+      expect(add('//[;][,]\n1;2,3')).toBe(6);
+    });
+    
+    it('should handle multiple delimiters with new lines', () => {
+      expect(add('//[;][|]\n1;2\n3')).toBe(6);
+      expect(add('//[***][###]\n4***5\n6')).toBe(15);
+      expect(add('//[---][+++]\n7---8\n9')).toBe(24);
+      expect(add('//[===][...]\n10===20\n30')).toBe(60);
+    });
   });
